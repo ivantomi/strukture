@@ -1,2 +1,4 @@
-# strukture
-Riješeni zadaci iz struktura
+# Strukture podataka (120)
+  Riješeni zadaci iz struktura
+  
+  
