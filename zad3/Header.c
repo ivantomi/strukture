@@ -34,9 +34,7 @@ void Ispis(Poz p)
 int UnosK(Poz p)
 {
 	while (p->next != NULL)
-	{
 		p = p->next;
-	}
 
 	Poz q = malloc(sizeof(struct osoba));
 
@@ -62,9 +60,7 @@ int Trazi(Poz p)
 	scanf(" %s", prz);
 
 	while ((p != NULL) && (strcmp(p->prz, prz) != 0))
-	{
 		p = p->next;
-	}
 
 	if (p == NULL)
 		printf("Nema tog lika.\n");
@@ -80,9 +76,8 @@ int TraziPret(Poz p)
 	printf("Unesite prezime od kojeg zelite znati prethodnog: ");
 	scanf(" %s", prz);
 	while ((p->next != NULL) && (strcmp(p->next->prz, prz) != 0))
-	{
 		p = p->next;
-	}
+	
 	if (p->next == NULL)
 		printf("Taj lik ne postoji u listi.\n");
 	else
@@ -134,9 +129,7 @@ int UnosIspredElementa(Poz p)
 	scanf(" %s", prezime);
 
 	while ((p->next != NULL) && (strcmp(p->next->prz, prezime) != 0))
-	{
 		p = p->next;
-	}
 
 	if (p->next == NULL)
 	{
@@ -167,9 +160,7 @@ int UnosIzaElementa(Poz p)
 	scanf(" %s", prezime);
 
 	while ((p != NULL) && (strcmp(p->prz, prezime) != 0))
-	{
 		p = p->next;
-	}
 
 	if (p == NULL)
 	{
