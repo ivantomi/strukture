@@ -23,18 +23,14 @@ int main()
 		printf("Null pointer");
 
 	while (!feof(dat))
-	{
 		if (fgetc(dat) == '\n')
 			n++;
-	}
 
-			
 	rewind(dat);
-
+	
 	stud = (student*)malloc(n * sizeof(student));
-
 	fja(dat, stud, n);
-
+	
 	fclose(dat);
 
 	return 0;
