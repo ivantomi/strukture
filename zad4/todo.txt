@@ -1,0 +1,2 @@
+1. rasteretiti funkcije
+2. dodati header.c i header. h
