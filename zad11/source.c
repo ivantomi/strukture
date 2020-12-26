@@ -13,7 +13,7 @@ typedef struct hashT *hashTab;
 
 hashTab Start(int);
 void DeleteTable(hashTab);
-position Search(char*, hashTab);
+int Search(char*, hashTab);
 int Add(char*, hashTab);
 int Hash(char*, int);
 int Print(hashTab);
@@ -53,7 +53,7 @@ int Hash(char* surname, int size)
 	return value % size;
 }
 
-position Search(char *surname, hashTab H)
+int Search(char *surname, hashTab H)
 {
 	list L;
 
@@ -61,7 +61,9 @@ position Search(char *surname, hashTab H)
 	while (L != NULL && strcmp(L->surname, surname) != 0)
 		L = L->next;
 
-	return L;
+	if (L == NULL) return -1;
+
+	return L->mb;
 }
 
 int Add(list L, hashTab H)
@@ -119,6 +121,19 @@ int main()
 		else if (number == 2)
 			break;
 		else printf("Nepoznat unos!\n");
+	}
+
+	char search[max];
+
+	while (1)
+	{
+		printf("unesite prezime koje zelite pretraziti ili 'kraj' za kraj: ");
+		scanf(" %s", search);
+		if (strcmp(search, "kraj") == 0)
+			break;
+		else if (Search(search, head) != -1)
+			printf("Trazeni student ima mb %d.\n", Search(search, head));
+		else printf("Nemat tog studenta.\n");
 	}
 
 	Print(head);
