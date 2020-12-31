@@ -25,7 +25,7 @@ int main()
 	int c;
 
 	do {
-		printf("Unesite 'push', 'pop' ili 'kraj': ");
+		printf("Unesite 'push', 'pop', 'kraj': ");
 		scanf(" %s", odabir);
 		c = Transform(odabir);
 		if (c == 1)
@@ -43,9 +43,10 @@ int main()
 
 		else printf("Probajte opet.\n");
 
-		if (c != -1)
+		if (c == 1)
 		{
-			VisualPrintStack(HeadStog.next);
+			//VisualPrintStack(HeadStog.next);
+			SlowPrint(HeadStog.next);
 			//VisualPrintStack(HeadRed.next);
 		}
 
@@ -75,7 +76,7 @@ int Ispis(Position p)
 {
 	while (p != NULL)
 	{
-		printf("%d ", p->element);
+		printf("%d", p->element);
 		p = p->next;
 	}
 	puts("\n");
