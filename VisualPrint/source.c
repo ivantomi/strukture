@@ -17,7 +17,7 @@ int main()
 
 
 
-	VisualPrint(&head);
+	VisualPrintSingular(&head);
 
 
 }
