@@ -7,4 +7,4 @@ struct node {
 
 int Write(position);
 int Print(position);
-int VisualPrint(position);
+int VisualPrintSingular(position);
