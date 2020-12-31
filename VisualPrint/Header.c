@@ -8,7 +8,7 @@
 int Write(position p)
 {
 	int number;
-	for (int i = 1; i < 11; i = i++)
+	for (int i = 10; i < 100; i = i++)
 	{
 		number = i;
 
@@ -31,7 +31,7 @@ int Print(position p)
 	}
 }
 
-int VisualPrint(position p)
+int VisualPrintSingular(position p)
 {
 	char t = -2;
 	int i = 0;
@@ -39,24 +39,33 @@ int VisualPrint(position p)
 	int temp;
 	int counter = 1, helper = 0;
 	int overflow = 0;
+	int flag = 0;
+	position next_row = NULL;
+	int prevent_double_head = 0;
 
 	//top border
 	while (p != NULL)
 	{
-
+		if (overflow == 11)
+		{
+			flag = 1;
+			next_row = p;
+			break;
+		}
 
 		for (i = 0; i < length; i++)
 			printf("%c", t);
 		printf("      ");
 		p = p->next;
 
+		overflow++;
 	}
 	printf("\n");
 
 	p = save;
 
 	//1st block
-	while (p != NULL)
+	while (p != next_row)
 	{
 		printf("%c ", t);
 		printf("%p ", p);
@@ -71,7 +80,7 @@ int VisualPrint(position p)
 	p = save;
 
 	//2nd block
-	while (p != NULL)
+	while (p != next_row)
 	{
 		printf("%c", t);
 		for (i = 0; i < length - 2; i++)
@@ -85,12 +94,13 @@ int VisualPrint(position p)
 	printf("\n");
 
 	//3rd block
-	while (p != NULL)
+	while (p != next_row)
 	{
-		if (p->number == NULL)
+		if (p->number == NULL && prevent_double_head == 0)
 		{
 			printf("%c   Head   %c   |  ", t, t);
 			p = p->next;
+			prevent_double_head = 1;
 		}
 		else
 		{
@@ -123,7 +133,7 @@ int VisualPrint(position p)
 	p = save;
 
 	//4th block
-	while (p != NULL)
+	while (p != next_row)
 	{
 		printf("%c", t);
 		for (i = 0; i < length - 2; i++)
@@ -138,7 +148,7 @@ int VisualPrint(position p)
 
 	
 	//5th block
-	while (p != NULL)
+	while (p != next_row)
 	{
 		printf("%c ", t);
 		if (p->next == NULL)
@@ -153,14 +163,18 @@ int VisualPrint(position p)
 	p = save;
 
 	//bottom border
-	while (p != NULL)
+	while (p != next_row)
 	{
 		for (i = 0; i < length; i++)
 			printf("%c", t);
 		printf("      ");
 		p = p->next;
 	}
-	printf("\n");
 
-	p = save;
+	printf("\n\n");
+
+	if (flag == 1)
+	{
+		VisualPrintSingular(next_row);
+	}
 }
