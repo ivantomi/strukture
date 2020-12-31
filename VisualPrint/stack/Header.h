@@ -1,4 +1,3 @@
-#pragma once
 typedef struct node* Position;
 struct node {
 	int element;
@@ -6,3 +5,4 @@ struct node {
 };
 
 int VisualPrintStack(Position);
+int SlowPrint(Position);
