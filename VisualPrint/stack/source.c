@@ -72,7 +72,7 @@ int RandomNumber()
 	return rand() % 90 + 10;
 }
 
-int Ispis(Position p)
+int Ispis(position p)
 {
 	while (p != NULL)
 	{
@@ -83,9 +83,9 @@ int Ispis(Position p)
 	return 0;
 }
 
-int Push(Position p)
+int Push(position p)
 {
-	Position q = malloc(sizeof(struct node));
+	position q = malloc(sizeof(struct node));
 
 	if (q == NULL)
 	{
@@ -101,28 +101,28 @@ int Push(Position p)
 	return 0;
 }
 
-int Pop(Position p)
+int Pop(position p)
 {
 	if (p->next == NULL)
 	{
 		printf("Stog je prazan!\n");
 		return -1;
 	}
-	Position temp = p->next;
+	position temp = p->next;
 	p->next = temp->next;
 	free(temp);
 
 	return 0;
 }
 
-int BrisiRed(Position p)
+int BrisiRed(position p)
 {
 	if (p->next == NULL)
 	{
 		printf("Red je prazan!\n");
 		return -1;
 	}
-	Position prev = p;
+	position prev = p;
 	while (p->next != NULL)
 	{
 		prev = p;
