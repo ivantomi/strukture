@@ -10,3 +10,4 @@ int FirstFunctionStack(position);
 int SecondFunctionStack(position);
 int ThirdFunctionStack(position);
 int FourthFunctionStack(position);
+int SpaceAndPause();
