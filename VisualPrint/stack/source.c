@@ -36,6 +36,7 @@ int main()
 		else if (c == 2)
 		{
 			Pop(&HeadStog);
+			VisualPrintStack(HeadStog.next);
 			BrisiRed(&HeadRed);
 		}
 		else if (c == 0)
