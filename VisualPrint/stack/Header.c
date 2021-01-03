@@ -122,3 +122,82 @@ int SpaceAndPause()
 		printf("\033[A");
 	printf("%c[2K", 27);
 }
+
+
+int Transform(char odabir[])
+{
+	if (strcmp(odabir, "push") == 0)
+		return 1;
+	else if (strcmp(odabir, "pop") == 0)
+		return 2;
+	else if (strcmp(odabir, "kraj") == 0)
+		return 0;
+	else return -1;
+}
+
+int RandomNumber()
+{
+	return rand() % 90 + 10;
+}
+
+int Ispis(position p)
+{
+	while (p != NULL)
+	{
+		printf("%d", p->element);
+		p = p->next;
+	}
+	puts("\n");
+	return 0;
+}
+
+int Push(position p)
+{
+	position q = malloc(sizeof(struct node));
+
+	if (q == NULL)
+	{
+		printf("Greska pri alociranu memorije!\n");
+		return 1;
+	}
+
+	q->element = RandomNumber();
+
+	q->next = p->next;
+	p->next = q;
+
+	return 0;
+}
+
+int Pop(position p)
+{
+	if (p->next == NULL)
+	{
+		printf("Stog je prazan!\n");
+		return -1;
+	}
+	position temp = p->next;
+	p->next = temp->next;
+	free(temp);
+
+	return 0;
+}
+
+int BrisiRed(position p)
+{
+	if (p->next == NULL)
+	{
+		printf("Red je prazan!\n");
+		return -1;
+	}
+	position prev = p;
+	while (p->next != NULL)
+	{
+		prev = p;
+		p = p->next;
+	}
+	prev->next = p->next;
+	free(p);
+
+	return 0;
+}
