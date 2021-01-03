@@ -9,7 +9,7 @@ struct node {
 int Write(position);
 int Print(position);
 int VisualPrintDouble(position);
-position SpaceAndSave(position, position);
+int SpaceAndSave(position, position);
 int TopBorderDouble(position, position, int);
 int FirstBlockDouble(position, position);
 int SecondBlockDouble(position, position);
