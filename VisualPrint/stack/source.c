@@ -6,14 +6,6 @@
 #include<string.h>
 #include"Header.h"
 
-
-int Push(Position);
-int Pop(Position);
-int BrisiRed(Position);
-int RandomNumber();
-int Ispis(Position);
-int Transform(char[]);
-
 int main()
 {
 	struct node HeadStog, HeadRed;
