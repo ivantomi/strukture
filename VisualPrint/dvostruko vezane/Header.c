@@ -228,11 +228,9 @@ int BottomBorderDouble(position p, position next_row)
 }
 
 
-position SpaceAndSave(position p, position save)
+int SpaceAndSave(position p, position save)
 {
 	printf("\n");
 	p = save;
-
-	return p;
 }
 
