@@ -2,15 +2,14 @@
 #include"Header.h"
 #include<stdio.h>
 #include<stdlib.h>
+char t = -2;
 
 
-int VisualPrintStack(Position p)
+int VisualPrintStack(position p)
 {
-	char t = -2;
 	int first = 0;
 
 	printf("\n\t      <---- push\n");
-
 
 	while (p != NULL)
 	{
@@ -20,7 +19,7 @@ int VisualPrintStack(Position p)
 		if (first == 1)
 			printf("<--");
 		printf("\n");
-		
+
 		// value
 		printf("|     %d     |", p->element);
 
@@ -43,33 +42,41 @@ int VisualPrintStack(Position p)
 			printf("%c", t);
 		if (p->next != NULL)
 			printf("  |");
-		
-
 
 		p = p->next;
 	}
-	puts("\n");
+	printf("\n");
 	return 0;
 }
 
-int SlowPrint(Position p)
+int SlowPrint(position p)
 {
-	char t = -2;
 	int i;
-	char c;
+
+	FirstFunctionStack(p);
+	SpaceAndPause();
+	SecondFunctionStack(p);
+	SpaceAndPause();
+	ThirdFunctionStack(p);
+	FourthFunctionStack(p);
+}
+
+int FirstFunctionStack(position p)
+{
+	int i;
 
 	printf("\n1. kreiramo prostor:\n");
 	printf("|  %p  | -> adresa cvora\n", p);
+
 	for (i = 0; i < 2; i++)
 		printf("|            |\n");
 	for (i = 0; i < 14; i++)
 		printf("%c", t);
-	printf("\n\n");
-	system("pause");
+}
 
-	for (i = 0; i < 7; i++)
-		printf("\033[A");
-	printf("%c[2K", 27);
+int SecondFunctionStack(position p)
+{
+	int i;
 
 	printf("\r2. upisemo vrijednost:\n");
 	printf("|  %p  |\n", p);
@@ -78,12 +85,11 @@ int SlowPrint(Position p)
 	printf("|            |\n");
 	for (i = 0; i < 14; i++)
 		printf("%c", t);
-	printf("\n\n");
-	system("pause");
+}
 
-	for (i = 0; i < 7; i++)
-		printf("\033[A");
-	printf("%c[2K", 27);
+int ThirdFunctionStack(position p)
+{
+	int i;
 
 	printf("3. povezemo pokazivace:\n");
 	printf("|  %p  |\n", p);
@@ -92,12 +98,27 @@ int SlowPrint(Position p)
 
 	for (i = 0; i < 14; i++)
 		printf("%c", t);
+}
 
+int FourthFunctionStack(position p)
+{
 	printf("\n\n");
 	system("pause");
 
 	system("cls");
+
 	printf("4. ispisemo stack:");
 	VisualPrintStack(p);
 }
 
+int SpaceAndPause()
+{
+	int i;
+
+	printf("\n\n");
+	system("pause");
+
+	for (i = 0; i < 7; i++)
+		printf("\033[A");
+	printf("%c[2K", 27);
+}
