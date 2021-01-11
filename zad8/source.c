@@ -47,22 +47,32 @@ int main()
 	strcpy(root->name, "C:\\");
 	root->sibling = NULL;
 	position current = root;
+	char* choice[30];
 
-	current = mkdir(current);
+	while (1)
+	{
+		printf(">");
+		scanf(" %s", choice);
 
-	current = chdir(current);
-	push(current, head);
-	Print(head);
+		if (strcmp(choice, "md") == 0)
+			current = mkdir(current);
+		else if (strcmp(choice, "cd") == 0)
+		{
+			current = chdir(current, head);
+			Print(head);
+		}
+		else if (strcmp(choice, "ls") == 0)
+			current = ls(current);
+		else if (strcmp(choice, "cd..") == 0)
+		{
+			current = cddotdot(head);
+			Print(head);
+		}
+		else if (strcmp(choice, "exit") == 0)
+			break;
+		else printf("Pogresan unos, probajte opet!\n");
+	}
 
-	current = mkdir(current);
-	current = mkdir(current);
-	printf("U trenutnom direktoriju:\n");
-	current = ls(current);
-
-	printf("cd..\n");
-	current = cddotdot(head);
-
-	Print(head);
 }
 
 position mkdir(position root)
@@ -85,7 +95,7 @@ position mkdir(position root)
 	return root;
 }
 
-position chdir(position root)
+position chdir(position root, position head)
 {
 	char name[20];
 	printf("Unesite ime direktorija u kojeg zelite uci: ");
@@ -94,6 +104,13 @@ position chdir(position root)
 	while (temp != NULL && strcmp(temp->name, name) != 0)
 		temp = temp->sibling;
 
+	if (temp == NULL)
+	{
+		printf("Nema tog direktorija!\n");
+		return root;
+	}
+
+	push(temp, head);
 	return temp;
 }
 
@@ -111,7 +128,7 @@ int Print(stack_position head)
 {
 	while (head != NULL)
 	{
- 		printf("%s\\", head->pointer->name);
+		printf("%s\\", head->pointer->name);
 		head = head->next;
 	}
 	printf("\n");
