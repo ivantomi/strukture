@@ -1,0 +1,5 @@
+Dvostruko vezane liste su one kod kojih svaki element ima pokazivac na prethodni i sljedeci clan.
+Prednost dodatnog pokazivaca je pojednostavljenost brisanja, ali mane su dodatni prostor koji zauzimamo i potreba
+za dodatnim postavljanjem pokazivaca pri dodavanju i brisanju elemenata iz liste.
+
+U programskoj realizaciji Head element pokazuje na prvi element liste i obratno, a zadnji element ima NULL pokazivac na sljedeceg.

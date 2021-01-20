@@ -1,0 +1,5 @@
+Stog je lista s ogranicenjem da se upisivanje i brisanje elemenata radi samo s jedne pozicije a to je kraj/vrh stoga.
+Operacije na stogu: push - upis novog elementa na vrh
+		    pop - skidanje elementa koji se nalazi na vrhu
+
+Radi po LIFO principu - last in, first out.

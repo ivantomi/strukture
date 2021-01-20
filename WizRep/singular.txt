@@ -1,0 +1,7 @@
+Jednostruko vezane liste su niz struktura koje fizicki mogu biti smjestene na razlicitim mjestima u memoriji.
+Svaki element sadrzi pokazivac na sljedeci clan, a koriste se da bi se izbjeglo uzastopno pomicanje clanova kod brisanja i dodavanja novog elementa.
+Ispis liste i pronalazenje elementa zahtijevaju N koraka. Pronalazenje k-tog elementa zahtijeva k operacija i traje duze nego kod niza (1 operacija).
+Umetanje elementa zahtijeva samo jednu operaciju alokacije memorije i dva postavljanja pokazivaca (pod uvjetom da je poznat prethodni element).
+Brisanje elementa zahtijeva jednu promjenu pokazivaca i oslobadjanje memorije.
+
+Kod programske realizacije dodaje se 'dummy' element koji pokazuje na pocetak liste (head).

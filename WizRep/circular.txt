@@ -1,0 +1,5 @@
+Cirkularne su liste one kod kojih zadnji clan sadrzi pokazivac na prvi i ne postoji NULL pokazivac na kraju.
+Nije bitno od kojeg se elementa u listi krece (tj. svaki cvor moze biti pocetni) jer se kruzno prolazi kroz sve elemente.
+
+Cirkularne se liste redovito koriste u aplikacijama koje cesto idu u krug po listi, npr. kada se istovremeno pokrene vise aplikacija na
+racunalu operacijski sustav kreira listu svih pokrenutih aplikacija i kruzenjem po toj listi dodjeljuje svakoj od njih dio procesorskog vremena.
